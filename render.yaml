@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: django-web-service
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn your_project_name.wsgi:application --preload
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://nathandemourasql_user:I5bl1oQAG71v2Xw8K1vOb0p3zWbGrOHi@dpg-d0d8j57diees73a7vcf0-a/nathandemourasql
+      - key: PYTHON_VERSION
+        value: 3.10
+      - key: DJANGO_SETTINGS_MODULE
+        value: your_project_name.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+
+databases:
+  - name: nathandemourasql
+    databaseName: nathandemourasql
+    user: nathandemourasql_user
