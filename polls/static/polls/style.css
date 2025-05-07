@@ -1,6 +1,44 @@
-li a {
-    color: green;
-}
-body {
-    background: white url("images/eva.jpg") no-repeat;
-}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Full-screen background */
+  body {
+    height: 100vh;
+    background: url('images/eva.jpg') no-repeat center center/cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Container for links */
+  .container {
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    padding: 30px 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Link styles */
+  a {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
