@@ -41,4 +41,18 @@
     background-color: #0056b3;
     transform: scale(1.05);
   }
+
+  [id^="commentContainer-"] {
+    display: none;
+    margin-top: 10px;
+  }
+  #postContainer{
+    display: none;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
   

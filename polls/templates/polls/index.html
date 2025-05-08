@@ -2,12 +2,57 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<button onclick = "showPostInput()">Make a Post</button>
+<div id = "postContainer">
+    <form method="POST">
+        {%csrf_token%}
+        {{post_form.as_p}}
+        <button type ="submit" name="submit_post">Post</button>
+    </form>
+</div>
 {% if latest_question_list %}
     <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% for post in latest_question_list %}
+        <h2>{{post.post_title}}</h2>
+        <li>{{post.post_text}}</li>
+        <button onclick="showCommentInput('{{post.id}}')">Comment</button>
+        <div id = "commentContainer-{{post.id}}">
+            <form method="POST">
+                {% csrf_token %}
+                {{comment_form.as_p}}
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                <button type="submit" name ="submit_comment">Submit Comment</button>
+            </form>
+        </div>
+        {% if post.comments.all %}
+            <h4>comments:</h4>
+            {% for comment in post.comments.all%}
+                <li>{{comment.post_text}}</li>
+            {% endfor %}
+        {% endif %}
     {% endfor %}
     </ul>
+      
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+<script>
+    function showCommentInput(postid) {
+      document.getElementById('commentContainer-'+postid).style.display = 'block';
+    }
+  
+    function submitCommentInput() {
+      const name = document.getElementById('userComment-{{postid}}').value;
+      document.getElementById('commentContainer-{{postid}}').style.display = 'none';
+    }
+
+    function showPostInput() {
+      document.getElementById('postContainer').style.display = 'block';
+    }
+  
+    function submitPostInput() {
+      const name = document.getElementById('userPost').value;
+      document.getElementById('postContainer').style.display = 'none';
+    }
+  </script>
