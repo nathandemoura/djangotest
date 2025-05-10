@@ -1,58 +1,96 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Full-screen background */
-  body {
-    height: 100vh;
-    background: url('images/eva.jpg') no-repeat center center/cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-  }
-  
-  /* Container for links */
-  .container {
-    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-    padding: 30px 50px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Link styles */
-  a {
-    display: inline-block;
-    margin: 10px 20px;
-    padding: 12px 25px;
-    text-decoration: none;
-    color: white;
-    background-color: #007BFF;
-    border-radius: 6px;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  a:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
 
-  [id^="commentContainer-"] {
-    display: none;
-    margin-top: 10px;
-  }
-  #postContainer{
-    display: none;
-    margin-top: 10px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
+  /* General Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: url('images/eva.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 2rem;
+}
+
+/* Overlay for readability */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: -1;
+}
+
+/* Post Board Container */
+#postBoard {
+  max-width: 800px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Post Title */
+#postBoard h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3rem;
+  padding-left:0.5rem;
+}
+
+/* Post Text List */
+#postBoard li {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  list-style-type: disc;
+  color: #444;
+}
+
+/* Buttons */
+button {
+  padding: 0.4rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #0066cc;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+#commentButton {
+  border-radius:100px;
+  padding: 0.2rem 1rem;
+  padding-left: 1rem;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+/* Comment Container */
+[id^="commentContainer-"] {
+  display: none; /* Hidden by default */
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-left: 4px solid #0066cc;
+  border-radius: 8px;
+}
+
+/* Form inside Comment */
+[id^="commentContainer-"] form {
+  display: flex;
+  flex-direction: column;
+}
+
+[id^="commentContainer-"] input,
+[id^="commentContainer-"] textarea {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
   
