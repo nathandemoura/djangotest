@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://nathandemourasql_user:I5bl1oQAG71v2Xw8K1vOb0p3zWbGrOHi@dpg-d0d8j57diees73a7vcf0-a.oregon-postgres.render.com/nathandemourasql',
+        default='postgresql://postgres:[JAckfAce123$]@db.btsyrvvcwyjjnprcxopj.supabase.co:5432/postgres',
         conn_max_age=600
     )
 }
