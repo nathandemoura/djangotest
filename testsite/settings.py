@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'testsite.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default = 'postgresql://postgres:38qZOXe3RpdwQVbo@db.pmaasgfxjbzaionghemu.supabase.co:5432/postgres',
+        default = 'postgresql://postgres.pmaasgfxjbzaionghemu:38qZOXe3RpdwQVbo@aws-0-us-west-1.pooler.supabase.com:5432/postgres',
         conn_max_age=600
     )
 }
